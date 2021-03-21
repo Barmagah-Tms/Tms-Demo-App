@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/taskReminderFragment">
+
+    <fragment
+        android:id="@+id/taskReminderFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.TaskReminderFragment"
+        android:label="TaskReminderFragment" />
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.list_users.UsersFragment"
+        android:label="UsersFragment" />
+    <fragment
+        android:id="@+id/addDataFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.add_data.AddDataFragment"
+        android:label="AddDataFragment" />
+</navigation>

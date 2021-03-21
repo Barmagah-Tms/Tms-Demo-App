@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout style="@style/matchMatch_">
+
+
+        <TextView
+            android:id="@+id/text_1"
+            style="@style/wrapWrap_"
+            android:layout_centerInParent="true"
+            android:text="Task Management System "
+            android:textSize="@dimen/_14ssp" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/text_1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_5ssp" />
+    </RelativeLayout>
+</layout>

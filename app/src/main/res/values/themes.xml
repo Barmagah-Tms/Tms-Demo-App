@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Tms" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+
+    </style>
+
+    <!--Custom Resources-->
+    <style name="matchMatch_">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="wrapWrap_" parent="matchWrap_">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="matchWrap_" parent="matchMatch_">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="editText_" parent="matchWrap_">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@android:drawable/editbox_dropdown_light_frame</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLength">35</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:drawablePadding">@dimen/_3sdp</item>
+    </style>
+
+    <style name="button_" parent="matchWrap_">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/blue</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+    </style>
+</resources>

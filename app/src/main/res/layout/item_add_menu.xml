@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="menuItem"
+            type="com.barmagah.tms_demo.home.data.Menu" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/matchWrap_"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+        <RelativeLayout
+            style="@style/matchMatch_"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/menuDrawable"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                app:imgSrc="@{menuItem.drawable}" />
+
+
+            <TextView
+                android:id="@+id/text1"
+                style="@style/wrapWrap_"
+                android:layout_below="@id/menuDrawable"
+                android:layout_alignParentStart="true"
+                android:text="@{menuItem.title}"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

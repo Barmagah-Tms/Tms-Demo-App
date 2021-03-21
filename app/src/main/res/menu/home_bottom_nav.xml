@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addDataFragment"
+        android:icon="@drawable/ic_add_circle"
+        android:title="add" />
+    <item
+        android:id="@+id/taskReminderFragment"
+        android:icon="@drawable/ic_reminder"
+        android:title="reminder" />
+    <item
+        android:id="@+id/usersFragment"
+        android:icon="@drawable/ic_data_base"
+        android:title="users" />
+
+</menu>
