@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="user"
+            type="com.barmagah.tms_demo.home.data.user.list_user.CommonUserRecords" />
+    </data>
+
     <LinearLayout
         style="@style/matchWrap_"
         android:layout_margin="@dimen/_5sdp"
-        android:padding="@dimen/_5sdp">
+        android:padding="@dimen/_25sdp">
 
         <TextView
+
             android:id="@+id/text_name"
             style="@style/matchWrap_"
             android:layout_gravity="center"
-            android:text="@string/app_name"
+            android:text="@{user.name}"
             android:textSize="@dimen/_12ssp" />
     </LinearLayout>
 </layout>

@@ -10,7 +10,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity() , KodeinAware {
+class LoginActivity : AppCompatActivity(), KodeinAware {
     // Injection
     override val kodein by closestKodein()
 

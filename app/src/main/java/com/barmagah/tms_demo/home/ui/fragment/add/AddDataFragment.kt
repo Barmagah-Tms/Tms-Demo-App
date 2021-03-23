@@ -1,23 +1,26 @@
-package com.barmagah.tms_demo.home.ui.fragment.add_data
+package com.barmagah.tms_demo.home.ui.fragment.add
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.barmagah.tms_demo.R
 import com.barmagah.tms_demo.databinding.FragmentAddDataBinding
-import com.barmagah.tms_demo.home.adapter.MenuItemAdapter
+import com.barmagah.tms_demo.home.adapter.views.MenuItemAdapter
 import com.barmagah.tms_demo.home.data.Menu
 import java.util.*
 
 class AddDataFragment : Fragment() {
 
     private lateinit var mBinding: FragmentAddDataBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,8 +55,10 @@ class AddDataFragment : Fragment() {
 
     private fun getMenuList(): ArrayList<Menu> {
         val menuArrayList: ArrayList<Menu> = ArrayList<Menu>()
-        menuArrayList.add(Menu(1, R.drawable.ic_add_project, "Add Project"))
-        menuArrayList.add(Menu(2, R.drawable.ic_add_task, "Add Task"))
+        menuArrayList.add(Menu(1, R.drawable.ic_add_users, "Add Customer"))
+        menuArrayList.add(Menu(2, R.drawable.ic_add_project, "Add Project"))
+        menuArrayList.add(Menu(3, R.drawable.ic_add_task, "Add Task"))
+
         return menuArrayList
     }
 
@@ -66,10 +71,11 @@ class AddDataFragment : Fragment() {
     private fun onMenuItemClick(id: Int) {
         when (id) {
             1 ->
-                Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
-            2 ->
-                Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                Log.d("TAG", "onMenuItemClick: ")
         }
     }
 
+    private fun moveToFragment(directions: NavDirections) {
+        findNavController().navigate(directions)
+    }
 }

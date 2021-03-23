@@ -8,7 +8,17 @@ class CompanyViewModel(
     private val companyRepository: CompanyRepository
 ) : ViewModel() {
 
-    val deferredData by lazyDeferred {
+    /*
+    * Users
+    * */
+    val deferredUserList by lazyDeferred {
         companyRepository.getListUser(1)
+    }
+
+    /*
+    * Customer
+    * */
+    val deferredCustomerList by lazyDeferred {
+        companyRepository.getListCustomer()
     }
 }

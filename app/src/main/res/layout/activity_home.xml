@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="user"
+            type="com.barmagah.tms_demo.system.data.login.LoginResponseEntry" />
+    </data>
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
         style="@style/matchMatch_"
@@ -35,7 +42,7 @@
                         app:expandedTitleMarginEnd="@dimen/_60sdp"
                         app:expandedTitleMarginStart="@dimen/_30sdp"
                         app:layout_scrollFlags="exitUntilCollapsed|scroll"
-                        app:title="company name">
+                        app:title="company_name">
 
                         <androidx.appcompat.widget.Toolbar
                             android:id="@+id/toolBar"
@@ -44,6 +51,24 @@
                             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                             app:layout_collapseMode="pin"
                             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+                        <LinearLayout
+                            style="@style/matchWrap_"
+                            android:layout_gravity="center"
+                            android:paddingStart="@dimen/_40ssp"
+                            android:paddingEnd="@dimen/_40ssp">
+
+                            <TextView
+                                style="@style/matchWrap_"
+                                android:text="@{user.fullName}"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/matchWrap_"
+                                android:text="Works as company_role at" />
+
+                        </LinearLayout>
 
                     </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -69,5 +94,28 @@
                 </androidx.core.widget.NestedScrollView>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/blue"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white">
+
+            <RelativeLayout style="@style/matchMatch_">
+
+                <TextView
+                    style="@style/wrapWrap_"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Developed by \nBarmagah for Integrated Solution \n www.barmagah.net"
+                    android:textSize="@dimen/_7ssp" />
+
+            </RelativeLayout>
+        </com.google.android.material.navigation.NavigationView>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

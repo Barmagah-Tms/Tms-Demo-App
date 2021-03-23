@@ -12,11 +12,7 @@
             android:textSize="@dimen/_14ssp" />
 
         <ProgressBar
-            android:id="@+id/progress_circular"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/text_1"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/_5ssp" />
+            style="@style/progress_"
+            android:layout_below="@id/text_1" />
     </RelativeLayout>
 </layout>

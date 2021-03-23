@@ -1,4 +1,4 @@
-package com.barmagah.tms_demo.home.data.list_user
+package com.barmagah.tms_demo.home.data.user.list_user
 
 data class UserResponse(
     val AddorEditID: Int,

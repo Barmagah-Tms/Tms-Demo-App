@@ -4,6 +4,7 @@ import android.content.Context
 import com.barmagah.tms_demo.system.data.CurrentUser
 import com.barmagah.tms_demo.system.provider.preference.PreferenceProvider
 import com.barmagah.tms_demo.utils.Constant.Companion.SH_IS_LOGGED_IN
+import com.barmagah.tms_demo.utils.Constant.Companion.SH_SWIPE_ICON
 import com.barmagah.tms_demo.utils.Constant.Companion.SH_USER_COMPANY_ID
 import com.barmagah.tms_demo.utils.Constant.Companion.SH_USER_EMAIL
 import com.barmagah.tms_demo.utils.Constant.Companion.SH_USER_PASS
@@ -20,6 +21,15 @@ class UserPreferenceProviderImpl(
 
     override fun getUserIntData(shared_: String): Int {
         return preferences.getInt(shared_, 0)
+    }
+
+    override fun isSwipeIconDisplayed(): Boolean {
+        return preferences.getBoolean(SH_SWIPE_ICON, false)
+    }
+
+    override fun swipeIconDisplayed() {
+        preferencesEditor.putBoolean(SH_SWIPE_ICON, true)
+        preferencesEditor.apply()
     }
 
 

@@ -10,10 +10,50 @@
         android:label="TaskReminderFragment" />
     <fragment
         android:id="@+id/usersFragment"
-        android:name="com.barmagah.tms_demo.home.ui.fragment.list_users.UsersFragment"
-        android:label="UsersFragment" />
+        android:name="com.barmagah.tms_demo.home.ui.fragment.read.user.UsersFragment"
+        android:label="UsersFragment">
+        <action
+            android:id="@+id/action_to_user_profile"
+            app:defaultNavHost="true"
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/addDataFragment"
-        android:name="com.barmagah.tms_demo.home.ui.fragment.add_data.AddDataFragment"
-        android:label="AddDataFragment" />
+        android:name="com.barmagah.tms_demo.home.ui.fragment.add.AddDataFragment"
+        android:label="AddDataFragment">
+       <!-- <action
+            android:id="@+id/action_to_add_user"
+            app:defaultNavHost="true"
+            app:destination="@id/addUserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.update.user.UserProfileFragment"
+        android:label="UserProfileFragment">
+
+        <argument
+            android:name="common_user"
+            app:argType="com.barmagah.tms_demo.home.data.user.list_user.CommonUserRecords"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.add.AddUserFragment"
+        android:label="AddUserFragment" />
+    <fragment
+        android:id="@+id/readDataMenuFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.read.ReadDataMenuFragment"
+        android:label="ReadDataMenuFragment" />
+    <fragment
+        android:id="@+id/customersFragment"
+        android:name="com.barmagah.tms_demo.home.ui.fragment.read.customer.CustomersFragment"
+        android:label="CustomersFragment" />
 </navigation>

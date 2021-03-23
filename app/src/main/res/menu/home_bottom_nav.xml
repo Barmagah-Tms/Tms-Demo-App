@@ -10,8 +10,8 @@
         android:icon="@drawable/ic_reminder"
         android:title="reminder" />
     <item
-        android:id="@+id/usersFragment"
+        android:id="@+id/readDataMenuFragment"
         android:icon="@drawable/ic_data_base"
-        android:title="users" />
-
+        android:title="Database" />
+   
 </menu>

@@ -1,7 +1,11 @@
 package com.barmagah.tms_demo.home.network.response
 
-import com.barmagah.tms_demo.home.data.list_user.ListUserRequest
-import com.barmagah.tms_demo.home.data.list_user.ListUsersResponse
+import com.barmagah.tms_demo.home.data.user.add_user.AddUserRequest
+import com.barmagah.tms_demo.home.data.customer.MainCustomerRequest
+import com.barmagah.tms_demo.home.data.customer.MainCustomersResponse
+import com.barmagah.tms_demo.home.data.deleteResponse.DeleteUserRequest
+import com.barmagah.tms_demo.home.data.user.list_user.ListUserRequest
+import com.barmagah.tms_demo.home.data.user.list_user.MainUsersResponse
 import com.barmagah.tms_demo.system.network.connectivity.ConnectivityInterceptor
 import com.barmagah.tms_demo.system.provider.UserPreferenceProvider
 import com.barmagah.tms_demo.utils.Constant.Companion.BASE_URL
@@ -19,10 +23,32 @@ import retrofit2.http.POST
 
 interface ApiNetworkService {
 
+    /*
+    * USERS
+    * */
     @POST("User/ListUser")
     fun getListUsersAsync(
         @Body listUserRequest: ListUserRequest
-    ): Deferred<ListUsersResponse?>?
+    ): Deferred<MainUsersResponse?>?
+
+    @POST("User/DeleteUser")
+    fun deleteUserAsync(
+        @Body deleteUserRequest: DeleteUserRequest
+    ): Deferred<MainUsersResponse?>?
+
+    @POST("User/AddUser")
+    fun addUserAsync(
+        @Body addUserRequest: AddUserRequest
+    ): Deferred<MainUsersResponse?>?
+
+    /*
+    * Customers
+    * */
+
+    @POST("Customer/ListCustomer")
+    fun getListCustomerAsync(
+        @Body mainCustomerRequest: MainCustomerRequest
+    ): Deferred<MainCustomersResponse?>?
 
 
     companion object {

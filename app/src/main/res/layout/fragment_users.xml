@@ -9,5 +9,10 @@
             android:id="@+id/recyclerView"
             style="@style/matchMatch_"
             android:padding="@dimen/_20ssp" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            style="@style/progress_" />
     </RelativeLayout>
 </layout>

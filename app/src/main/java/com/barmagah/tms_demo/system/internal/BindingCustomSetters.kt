@@ -1,4 +1,4 @@
-package com.barmagah.tms_demo.utils
+package com.barmagah.tms_demo.system.internal
 
 import android.annotation.SuppressLint
 import android.widget.ImageView

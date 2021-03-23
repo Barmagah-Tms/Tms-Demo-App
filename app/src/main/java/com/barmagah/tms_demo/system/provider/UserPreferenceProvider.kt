@@ -10,4 +10,6 @@ interface UserPreferenceProvider {
     fun getUserStringData(shared_: String): String
     fun getUserIntData(shared_: String): Int
 
+    fun isSwipeIconDisplayed(): Boolean
+    fun swipeIconDisplayed()
 }

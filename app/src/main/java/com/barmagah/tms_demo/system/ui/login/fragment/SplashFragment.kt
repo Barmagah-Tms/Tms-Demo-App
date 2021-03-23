@@ -20,6 +20,7 @@ import com.barmagah.tms_demo.utils.Constant
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
+import java.lang.Exception
 
 class SplashFragment : ScopedFragment(), KodeinAware {
     //Inject
@@ -57,15 +58,21 @@ class SplashFragment : ScopedFragment(), KodeinAware {
     }
 
     private fun autoLogin() = launch {
-        val deferredData = viewModel.deferredData.await()//sync
-        deferredData.observe(viewLifecycleOwner, Observer {
+        try {
 
-            if (it?.token != null) {
-                moveToFragment(SplashFragmentDirections.actionToHomeActivity())
-                (activity as LoginActivity).finish()
-            } else
-                moveToFragment(SplashFragmentDirections.actionToLogin())
-        })
+            val deferredData = viewModel.deferredData.await()//sync
+            deferredData.observe(viewLifecycleOwner, Observer {
+
+                if (it?.token != null) {
+                    moveToFragment(SplashFragmentDirections.actionToHomeActivity())
+                    (activity as LoginActivity).finish()
+                } else
+                    moveToFragment(SplashFragmentDirections.actionToLogin())
+            })
+
+        } catch (ex: Exception) {
+            Log.d(TAG, "autoLogin: $ex")
+        }
     }
 
     /*

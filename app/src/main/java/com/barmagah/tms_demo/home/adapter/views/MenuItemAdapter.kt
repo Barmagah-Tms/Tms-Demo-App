@@ -1,4 +1,4 @@
-package com.barmagah.tms_demo.home.adapter
+package com.barmagah.tms_demo.home.adapter.views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

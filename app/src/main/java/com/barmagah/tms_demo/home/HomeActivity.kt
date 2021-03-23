@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -18,6 +19,7 @@ import com.barmagah.tms_demo.R
 import com.barmagah.tms_demo.databinding.ActivityHomeBinding
 import com.barmagah.tms_demo.home.ui.CompanyViewModel
 import com.barmagah.tms_demo.home.ui.CompanyViewModelFactory
+import com.barmagah.tms_demo.system.data.login.db.TmsDatabase
 import com.barmagah.tms_demo.system.provider.UserPreferenceProviderImpl
 import com.barmagah.tms_demo.system.ui.LoginActivity
 import com.barmagah.tms_demo.utils.startNewActivity
@@ -39,6 +41,10 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
     private val viewModelFactory: CompanyViewModelFactory by instance()
     lateinit var viewModel: CompanyViewModel
 
+    companion object {
+        const val TAG = "HOME_TAG"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -56,6 +62,8 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory)
                 .get(CompanyViewModel::class.java)
+        /* action*/
+        loadUserData()
 
     }
 
@@ -67,29 +75,50 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
     private fun setNavHostWithController() {
         setSupportActionBar(mBinding.toolBar)//supportActionBar!!.hide()
         mBinding.collapsingToolbarLayout.isTitleEnabled = true
-        mBinding.collapsingToolbarLayout.title = "company name"
+        mBinding.collapsingToolbarLayout.title = "company_name"
 
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
-        inflateBottomNavigation()
+        inflateNavigationMenus()
 
 
     }
 
-    private fun inflateBottomNavigation() {
+    private fun inflateNavigationMenus() {
+        // Bottom
         mBinding.bottomNav.menu.clear()
         mBinding.bottomNav.inflateMenu(R.menu.home_bottom_nav)
         mBinding.bottomNav.setupWithNavController(navController)
 
+        // Slide Menu
+        mBinding.navView.menu.clear();
+        mBinding.navView.inflateMenu(R.menu.home_admin_side_nav);
 
+
+        /*
+        *  set App Configuration
+        * */
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.taskReminderFragment/*, R.id.createFragment*/), mBinding.drawerLayout
+            setOf(R.id.taskReminderFragment/*,fragment*/), mBinding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+        mBinding.navView.setupWithNavController(navController)
+
     }
 
+
+    /*
+    * User Stuff
+    * */
+
+    private fun loadUserData() {
+        val dao = TmsDatabase.invoke(this@HomeActivity).currentUserDao()
+        dao.getCurrentUser().observe(this@HomeActivity, Observer {
+            mBinding.user = it
+        })
+    }
 
     private fun logout() {
         AlertDialog.Builder(this)
@@ -107,7 +136,7 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
     }
     /*
     *
-    * OVERRIDE & Class!
+    * Override & Class!
     *
     * */
 
@@ -119,6 +148,7 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
         menuInflater.inflate(R.menu.home_options_menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.log_out ->
@@ -128,5 +158,6 @@ class HomeActivity : AppCompatActivity(), KodeinAware {
         }
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
+
 
 }
